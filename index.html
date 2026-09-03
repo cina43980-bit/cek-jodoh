@@ -1,233 +1,449 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cek Jodoh 💕</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+<title>💕 Cek Jodoh</title>
 
-    body {
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #ff758c, #ff7eb3);
-      padding: 20px;
-    }
+<style>
+* {
+    box-sizing: border-box;
+}
 
-    .container {
-      width: 100%;
-      max-width: 420px;
-      background: white;
-      padding: 30px;
-      border-radius: 25px;
-      text-align: center;
-      box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-    }
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+}
 
-    h1 {
-      color: #ff477e;
-      margin-bottom: 10px;
-    }
+.container {
+    width: 100%;
+    max-width: 420px;
+    background: white;
+    padding: 30px;
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: 0 15px 40px rgba(0,0,0,.2);
+}
 
-    .subtitle {
-      color: #777;
-      margin-bottom: 25px;
-    }
+h1 {
+    margin-bottom: 5px;
+    color: #ff477e;
+}
 
-    label {
-      display: block;
-      text-align: left;
-      font-weight: bold;
-      margin: 12px 0 7px;
-    }
+.subtitle {
+    color: #777;
+    margin-bottom: 25px;
+}
 
-    input {
-      width: 100%;
-      padding: 13px;
-      border: 2px solid #eee;
-      border-radius: 12px;
-      font-size: 16px;
-      outline: none;
-    }
+label {
+    display: block;
+    text-align: left;
+    margin: 15px 0 7px;
+    font-weight: bold;
+    color: #444;
+}
 
-    input:focus {
-      border-color: #ff477e;
-    }
+input {
+    width: 100%;
+    padding: 14px;
+    border: 2px solid #eee;
+    border-radius: 12px;
+    font-size: 16px;
+    outline: none;
+}
 
-    button {
-      width: 100%;
-      margin-top: 20px;
-      padding: 14px;
-      border: none;
-      border-radius: 12px;
-      background: #ff477e;
-      color: white;
-      font-size: 17px;
-      font-weight: bold;
-      cursor: pointer;
-    }
+input:focus {
+    border-color: #ff477e;
+}
 
-    button:hover {
-      background: #e9366b;
-    }
+button {
+    width: 100%;
+    padding: 14px;
+    margin-top: 22px;
+    border: none;
+    border-radius: 12px;
+    background: #ff477e;
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+}
 
-    #hasil {
-      display: none;
-      margin-top: 25px;
-      padding: 20px;
-      background: #fff0f4;
-      border-radius: 18px;
-    }
+button:hover {
+    background: #e9366b;
+}
 
-    .nama {
-      font-size: 18px;
-      font-weight: bold;
-      color: #444;
-      margin-bottom: 15px;
-    }
+#hasil {
+    display: none;
+    margin-top: 25px;
+    padding: 22px;
+    background: #fff0f4;
+    border-radius: 20px;
+}
 
-    .persen {
-      font-size: 55px;
-      font-weight: bold;
-      color: #ff477e;
-      margin: 10px 0;
-    }
+.nama {
+    font-size: 19px;
+    font-weight: bold;
+    color: #444;
+}
 
-    .pesan {
-      color: #555;
-      line-height: 1.5;
-    }
-  </style>
+.persen {
+    margin: 15px 0;
+    font-size: 60px;
+    font-weight: bold;
+    color: #ff477e;
+}
+
+.progress {
+    width: 100%;
+    height: 14px;
+    background: #eee;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    width: 0%;
+    height: 100%;
+    background: #ff477e;
+    transition: width 1s ease;
+}
+
+.pesan {
+    margin-top: 15px;
+    color: #555;
+    line-height: 1.5;
+}
+</style>
 </head>
 
 <body>
 
-  <div class="container">
+<div class="container">
 
     <h1>💕 Cek Jodoh</h1>
-    <p class="subtitle">Apakah kalian berjodoh?</p>
 
-    <label for="cewe">Nama Cewek</label>
+    <p class="subtitle">
+        Masukkan nama kalian
+    </p>
+
+    <label for="cewe">
+        Nama Cewek
+    </label>
+
     <input
-      type="text"
-      id="cewe"
-      placeholder="Masukkan nama cewek"
-      autocomplete="off"
+        type="text"
+        id="cewe"
+        placeholder="Masukkan nama cewek"
+        autocomplete="off"
     >
 
-    <label for="cowo">Nama Cowok</label>
+    <label for="cowo">
+        Nama Cowok
+    </label>
+
     <input
-      type="text"
-      id="cowo"
-      placeholder="Masukkan nama cowok"
-      autocomplete="off"
+        type="text"
+        id="cowo"
+        placeholder="Masukkan nama cowok"
+        autocomplete="off"
     >
 
-    <button onclick="cekJodoh()">💖 Cek Sekarang</button>
+    <button onclick="cekJodoh()">
+        💖 CEK JODOH
+    </button>
 
     <div id="hasil">
-      <div class="nama" id="namaPasangan"></div>
 
-      <div class="persen" id="persen"></div>
+        <div
+            class="nama"
+            id="namaPasangan">
+        </div>
 
-      <div class="pesan" id="pesan"></div>
+        <div
+            class="persen"
+            id="persen">
+            0%
+        </div>
+
+        <div class="progress">
+            <div
+                class="progress-bar"
+                id="progressBar">
+            </div>
+        </div>
+
+        <div
+            class="pesan"
+            id="pesan">
+        </div>
+
     </div>
 
-  </div>
+</div>
 
-  <script>
+
+<script>
+
+/*
+====================================================
+              SISTEM CEK JODOH
+====================================================
+
+FITUR:
+
+✓ Persentase 0–100%
+✓ Tidak menggunakan Math.random()
+✓ Pasangan yang sama = hasil tetap
+✓ Tidak berubah ketika tombol ditekan lagi
+✓ Tidak ada database gender
+✓ Nama bebas dimasukkan
+====================================================
+*/
+
+
+/*
+----------------------------------------------------
+ NORMALISASI NAMA
+----------------------------------------------------
+*/
+
+function normalisasi(nama) {
+
+    return nama
+        .toLowerCase()
+        .trim()
+        .replace(/\s+/g, " ");
+
+}
+
+
+/*
+----------------------------------------------------
+ MEMBUAT IDENTITAS PASANGAN
+----------------------------------------------------
+
+Contoh:
+
+aisyah + fikri
+
+menjadi:
+
+aisyah|fikri
+
+Identitas ini selalu sama untuk pasangan
+yang sama.
+----------------------------------------------------
+*/
+
+function buatKunci(cewe, cowo) {
+
+    return (
+        normalisasi(cewe) +
+        "|" +
+        normalisasi(cowo)
+    );
+
+}
+
+
+/*
+----------------------------------------------------
+ MEMBUAT PERSENTASE
+----------------------------------------------------
+
+Tidak menggunakan random.
+
+Jadi:
+
+Aisyah + Fikri
+akan selalu mendapat angka yang sama.
+----------------------------------------------------
+*/
+
+function buatPersen(cewe, cowo) {
+
+    const kunci =
+        buatKunci(cewe, cowo);
+
+    let hash = 2166136261;
+
+    for (let i = 0; i < kunci.length; i++) {
+
+        hash ^= kunci.charCodeAt(i);
+
+        hash +=
+            (hash << 1) +
+            (hash << 4) +
+            (hash << 7) +
+            (hash << 8) +
+            (hash << 24);
+
+    }
+
     /*
-      ===============================
-      DATA JODOH
-      ===============================
-
-      Persentase ditentukan di sini.
-      Pengguna TIDAK dapat mengubah
-      persentase melalui input.
-
-      Ganti nama dan persen sesuai
-      pasangan yang kamu inginkan.
+    Pastikan selalu berada di 0–100.
     */
 
-    const pasangan = {
-      "aisyah|fikri": 95,
-      "fikri|aisyah": 95,
+    return Math.abs(hash >>> 0) % 101;
 
-      "pira|fikri": 80,
-      "fikri|pira": 80,
+}
 
-      "sita|fikri": 75,
-      "fikri|sita": 75
-    };
 
-    function cekJodoh() {
+/*
+----------------------------------------------------
+ PESAN BERDASARKAN PERSENTASE
+----------------------------------------------------
+*/
 
-      const cewe = document
+function buatPesan(nilai) {
+
+    if (nilai >= 90) {
+
+        return "💖 Jodoh banget! Kecocokan kalian sangat tinggi!";
+
+    }
+
+    if (nilai >= 80) {
+
+        return "💕 Wah, kalian sangat cocok!";
+
+    }
+
+    if (nilai >= 70) {
+
+        return "🥰 Cocok nih! Chemistry-nya bagus.";
+
+    }
+
+    if (nilai >= 60) {
+
+        return "😊 Lumayan cocok!";
+
+    }
+
+    if (nilai >= 40) {
+
+        return "😆 Masih ada kemungkinan!";
+
+    }
+
+    if (nilai >= 20) {
+
+        return "😂 Kayaknya perlu lebih banyak ngobrol.";
+
+    }
+
+    return "🤣 Waduh, kecocokannya rendah banget!";
+
+}
+
+
+/*
+----------------------------------------------------
+ CEK JODOH
+----------------------------------------------------
+*/
+
+function cekJodoh() {
+
+    const cewe =
+        document
         .getElementById("cewe")
         .value
-        .trim()
-        .toLowerCase();
+        .trim();
 
-      const cowo = document
+    const cowo =
+        document
         .getElementById("cowo")
         .value
-        .trim()
-        .toLowerCase();
+        .trim();
 
-      if (!cewe || !cowo) {
-        alert("Nama cewek dan cowok harus diisi!");
+
+    /*
+    CEK INPUT KOSONG
+    */
+
+    if (cewe === "" || cowo === "") {
+
+        alert(
+            "Nama cewek dan cowok harus diisi!"
+        );
+
         return;
-      }
 
-      const key = cewe + "|" + cowo;
+    }
 
-      /*
-        Persen diambil dari data yang sudah
-        ditentukan, bukan dihitung dari input.
-      */
 
-      let nilai = pasangan[key];
+    /*
+    BUAT PERSENTASE TETAP
+    */
 
-      /*
-        Kalau pasangan tidak ada di database,
-        gunakan nilai tetap 50%.
-      */
+    const nilai =
+        buatPersen(cewe, cowo);
 
-      if (nilai === undefined) {
-        nilai = 50;
-      }
 
-      document.getElementById("namaPasangan").textContent =
-        cewe.toUpperCase() + " ❤️ " + cowo.toUpperCase();
+    /*
+    TAMPILKAN NAMA
+    */
 
-      document.getElementById("persen").textContent =
+    document
+        .getElementById("namaPasangan")
+        .textContent =
+        cewe.toUpperCase() +
+        " ❤️ " +
+        cowo.toUpperCase();
+
+
+    /*
+    TAMPILKAN PERSEN
+    */
+
+    document
+        .getElementById("persen")
+        .textContent =
         nilai + "%";
 
-      let pesan;
 
-      if (nilai >= 90) {
-        pesan = "💖 Wah, cocok banget! Semoga benar-benar berjodoh!";
-      } else if (nilai >= 75) {
-        pesan = "💕 Ada chemistry nih! Bisa jadi pasangan yang cocok.";
-      } else if (nilai >= 60) {
-        pesan = "😊 Lumayan cocok, siapa tahu ada kesempatan.";
-      } else {
-        pesan = "😂 Jodoh memang rahasia Tuhan!";
-      }
+    /*
+    PROGRESS BAR
+    */
 
-      document.getElementById("pesan").textContent = pesan;
+    document
+        .getElementById("progressBar")
+        .style.width =
+        nilai + "%";
 
-      document.getElementById("hasil").style.display = "block";
-    }
-  </script>
+
+    /*
+    PESAN
+    */
+
+    document
+        .getElementById("pesan")
+        .textContent =
+        buatPesan(nilai);
+
+
+    /*
+    TAMPILKAN HASIL
+    */
+
+    document
+        .getElementById("hasil")
+        .style.display =
+        "block";
+
+}
+
+</script>
 
 </body>
 </html>
